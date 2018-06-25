@@ -45,9 +45,7 @@
             var chart = new google.visualization.LineChart(document.getElementById('chart_' + chartName));
             chart.draw(chartData, chartOptions);
             if (chartName != "Summary") {
-              $('#panel_' + chartName).collapse({
-                toggle: false
-              });
+              $('#panel_' + chartName).collapse('hide');
             }
           });
         }
