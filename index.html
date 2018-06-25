@@ -11,41 +11,54 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
-    function drawChart() {
-      var jsonData = $.ajax({
-        url: "data/ss-tokyo.json",
+    function OnGoogleChartAPILoaded() {
+      $.ajax({
+        url: "data/chartDatas.json",
         dataType: "json",
-        async: false
-      }).responseText;
-      var data = google.visualization.arrayToDataTable(JSON.parse(jsonData));
-
-      var options = {
-        title: '',
-        vAxis: {
-          viewWindow: {
-            min: 0
-          }
-        },
-        curveType: 'function',
-        legend: {
-          position: 'bottom'
+        async: false,
+        success: function (jsonData) {
+          $.each(jsonData, function (chartName) {
+            $("#chartDiv").append("<div class='panel panel-info'>" +
+              "<div class='panel-heading'>" +
+              "<a class='panel-title' data-toggle='collapse' href='#" + "panel_" + chartName +
+              "'>" +
+              "<strong>&nbsp;" + chartName + "</strong>&nbsp;(" + jsonData[chartName].lastupdate + ")" +
+              "</a>" +
+              "</div>" +
+              "<div id='panel_" + chartName + "' class='panel-collapse collapse in'>" +
+              "<div class='panel-body' id='chart_" + chartName + "'>" +
+              "</div>" +
+              "</div>" +
+              "</div>");
+            var chartData = google.visualization.arrayToDataTable(jsonData[chartName].data);
+            var chart = new google.visualization.LineChart(document.getElementById('chart_' + chartName));
+            chart.draw(chartData, chartOptions);
+          });
         }
-      };
-      var chart = null;
-      chart = new google.visualization.LineChart(document.getElementById('curve_chart_ss-tokyo'));
-      chart.draw(data, options);
+      });
     }
+    google.charts.load('current', {
+      'packages': ['corechart'],
+      callback: OnGoogleChartAPILoaded
+    });
   </script>
   <script type="text/javascript">
-    google.charts.load('current', {
-      'packages': ['corechart']
-    });
-    google.charts.setOnLoadCallback(drawChart);
+    var chartOptions = {
+      title: '',
+      vAxis: {
+        viewWindow: {
+          min: 0
+        }
+      },
+      curveType: 'function',
+      legend: {
+        position: 'bottom'
+      }
+    };
   </script>
-
 </head>
 
 <body>
@@ -60,25 +73,7 @@
             <small>Google Chart</small>
           </h1>
         </div>
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <a class="panel-title" data-toggle="collapse" href="#pe-ss-tokyo">
-              <strong>SS-TOKYO</strong>(2018-06-24 22:18:18 UTC)</a>
-          </div>
-          <div id="pe-ss-tokyo" class="panel-collapse collapse in">
-            <div class="panel-body" id="curve_chart_ss-tokyo">
-            </div>
-          </div>
-        </div>
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <a class="panel-title" data-toggle="collapse" href="#pe-ss-hakone">
-              <strong>SS-HAKONE</strong>(2018-06-24 22:18:18 UTC)</a>
-          </div>
-          <div id="pe-ss-hakone" class="panel-collapse collapse in">
-            <div class="panel-body" id="curve_chart_ss-hakone">
-            </div>
-          </div>
+        <div id="chartDiv">
         </div>
       </div>
     </div>
