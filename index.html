@@ -22,7 +22,13 @@
         async: false,
         success: function (jsonData) {
           $.each(jsonData, function (chartName) {
-            $("#chartDiv").append("<div class='panel panel-info'>" +
+            var chartColor = "info"
+            if (chartName == "Summary") {
+              chartColor = "warning";
+            } else {
+              chartColor = "info";
+            }
+            $("#chartDiv").append("<div class='panel panel-" + chartColor + "'>" +
               "<div class='panel-heading'>" +
               "<a class='panel-title' data-toggle='collapse' href='#" + "panel_" + chartName +
               "'>" +
