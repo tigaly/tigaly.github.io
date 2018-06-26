@@ -30,12 +30,6 @@ span {
   font-size: 1.5em;
 }
 
-span:after {
-  content: "_gheorghe";
-  opacity: 0;
-  animation: cursor 1s infinite;
-}
-
 @keyframes cursor {
   0% {
     opacity: 0;
@@ -60,4 +54,14 @@ span:after {
 
 .panel-body {
   background-color: black;
+  color: white;
+}
+
+nav {
+  opacity: 0.85;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
 }
