@@ -87,14 +87,13 @@
     };
   </script>
   <script type="text/javascript" src="js/dom-to-image.min.js"></script>
+  <script type="text/javascript" src="js/FileSaver.min.js"></script>
   <script type="text/javascript">
     function GetSummaryImage() {
       var node = document.getElementById('panel_Summary');
-      domtoimage.toPng(node).then(function (dataUrl) {
-        var alink = document.createElement("a");
-        alink.href = dataUrl;
-        alink.download = $('#panel_Summary').children('.panel-heading').children('.panel-title').text().trim();
-        alink.click();
+      domtoimage.toBlob(node).then(function (blob) {
+        saveAs(blob, $('#panel_Summary').children('.panel-heading').children('.panel-title').text().trim() +
+          '.png');
       }).catch(function (error) {
         console.error('oops, something went wrong!', error);
       });
