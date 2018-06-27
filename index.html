@@ -18,7 +18,7 @@
   <script type="text/javascript">
     function OnGoogleChartAPILoaded() {
       $.ajax({
-        url: "data/chartDatas.json",
+        url: "data/chartDatas.json?r=" + (new Date()).getTime(),
         dataType: "json",
         async: false,
         success: function (jsonData) {
