@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="%E5%A6%82%E4%BD%95%E5%AE%89%E5%85%A8%E9%83%A8%E7%BD%B2%E6%A2%AF%E5%AD%90%EF%BC%88vultr%E7%89%88%EF%BC%89">如何安全部署梯子（Vultr版）</h1>
+<blockquote>
+<p>注意：请不要转发这份文档或文档的链接给任何人</p>
+</blockquote>
+<h2 id="secure-the-security-%E2%80%94%E2%80%94-%E5%8A%A0%E5%9B%BA%E4%BD%A0%E7%9A%84-vultr-%E8%B4%A6%E5%8F%B7">Secure the security —— 加固你的 <code>Vultr</code> 账号</h2>
+<ul>
+<li>
+<p>在手机上下载 <code>Google Authenticator</code>，iOS/Android，这是一个完全离线的 <code>TOTP</code>（Time-based One-Time Password）令牌，并且可以兼容所有符合 <code>RFC6238</code> 标准的 <code>TOTP</code> 认证</p>
+</li>
+<li>
+<p>登录你的 <code>Vultr</code> 账号，点击右上角 <code>Welcome back, XXXX</code> 你自己名字的菜单，选择 <code>Profile</code>，选择 <code>Authentication</code>，点击 <code>Manage Two Factor Authentication</code>，选择 <code>Google Auth</code>，并任意设置一个 <code>Description</code>，点击 <code>+</code> 号，保存好 <code>Secret Key</code>，这是你如果丢失令牌唯一可能找回的凭据，妥善保管，最好打印出来放在安全的地方</p>
+</li>
+<li>
+<p>在手机的 <code>Google Authenticator</code> 中扫描二维码，点击页面上的 <code>Continue</code>，并将生成的下一个令牌输入，点击 <code>Enable Google Authentication</code></p>
+<blockquote>
+<p>在启用两步认证后，登录账号时都需要通过 <code>Google Authenticator</code> 获得令牌，若手机丢失或损坏，则必须使用保存好的 <code>Secret Key</code> 解除两步认证</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="get-in-shape-%E2%80%94%E2%80%94-%E5%81%9A%E5%A5%BD%E5%A6%A5%E5%96%84%E7%9A%84%E5%B7%A5%E5%85%B7%E5%87%86%E5%A4%87">Get in shape —— 做好妥善的工具准备</h2>
+<ul>
+<li>
+<p>需要至少一个 <code>SSH</code> 连接工具，可以使用 <code>Putty</code>、<code>SecureCRT</code> 等等</p>
+<blockquote>
+<p>由于网上下载的 <code>Putty</code> 或 <code>破解版</code> 工具本身往往就含有木马程序，攻击者可以直接获得你的服务器的访问密码，非常不安全，确保你从安全途径获得 SSH 工具，使用开源的免费版本自己进行编译，或者使用可靠的付费版本</p>
+</blockquote>
+</li>
+<li>
+<p>这里我给出我自己编译的 <code>Putty</code>，<a href="https://transfer.sh/A3tbP/putty.zip">下载地址</a></p>
+</li>
+<li>
+<p>永远不要直接通过 SSH 连接你的 VPS，SSH 协议具有明显的协议特征，GFW 可以识别这些特征并判定这是一台 VPS 主机，大部分 SSH 工具都支持通过代理方式访问，或者你也可以通过 VPN 访问，这里以 <code>Putty</code> 为例，如何配置代理访问</p>
+<ul>
+<li>首先你要有一个可以用的代理，这里可以用免费的 SS，SSH 协议本身还会进行一次加密，所以使用免费的 SS 也不会影响安全性，我们假设你已经装好了客户端，本地端口 1080</li>
+<li>在左侧选择 <code>连接-代理</code>，右侧选择代理类型为 <code>Sock5</code>，代理地址为 <code>127.0.0.1</code>，端口为 <code>1080</code></li>
+<li>在左侧选择 <code>会话</code>，右侧填写服务器的 IP 地址和 端口号，并输入一个 <code>会话名称</code>，点击 <code>保存</code></li>
+</ul>
+<blockquote>
+<p>保存以后，会话和代理配置都会被保存，以后打开 <code>Putty</code> 可以直接双击这个会话名称连接，但是请不要在公共电脑上这样做</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="plan-a-heist-%E2%80%94%E2%80%94-%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E6%9C%80%E4%BD%B3%E5%AE%9E%E4%BE%8B">Plan a heist —— 选择一个最佳实例</h2>
+<ul>
+<li>
+<p>评估一个实例的基本要素</p>
+<ul>
+<li>是否在大陆可以连接</li>
+<li>丢包率</li>
+<li>延迟</li>
+<li>峰值带宽</li>
+</ul>
+</li>
+<li>
+<p>北方联通非常适合使用日本节点，然而 <code>Vultr</code> 大部分的日本节点都已经被封禁 IP</p>
+</li>
+<li>
+<p>反复创建 <code>Vultr</code> 的日本节点，使用 <code>CentOS7</code> 系统，获得随机的公网 IP 地址，并执行如下的测试，若测试不通过，则删除重建，由于 <code>Vultr</code> 的扣费策略时按小时计费，节点会被收取最少 <code>0.01</code> 美元，作为选择节点的成本还可以接受，一般来说 10 个节点可以找到 1 个可用的 IP</p>
+<blockquote>
+<p>FAQ：为什么要使用 <code>CentOS</code>？因为 <code>CentOS</code> 是一个面向生产环境的以稳定为特色的发行版本，并且我下面给出的命令都是以 <code>CentOS</code> 为基础的，若使用其他发行版本，可能会有轻度的兼容性问题，当然如果你可以自己处理和改进这些问题，你可以使用任何你喜欢的操作系统</p>
+</blockquote>
+<ul>
+<li>通过代理安全的连接你的 VPS（参考上一章）</li>
+<li>关闭系统自带的防火墙 <code>firewalld</code></li>
+</ul>
+<pre class="hljs"><code><div>systemctl stop firewalld
+</div></code></pre>
+<ul>
+<li>创建一个随机的测试用网页 <code>index.html</code></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-built_in">echo</span> <span class="hljs-string">'Across the Great Wall we can reach every corner in the world.'</span> &gt;index.html
+</div></code></pre>
+<ul>
+<li>创建一个“一句话”Web 服务器</li>
+</ul>
+<pre class="hljs"><code><div>python -m SimpleHTTPServer 9080
+</div></code></pre>
+<ul>
+<li>在你自己的电脑上打开一个测速网站，我们使用 <a href="https://www.17ce.com/">17ce</a>，输入测试网址 <code>http://xxx.xxx.xxx.xxx:9080</code>，这里的 <code>xxx.xxx.xxx.xxx</code> 替换为你 VPS 的公网 IP 地址，然后进行测速</li>
+<li>若这台 VPS 已经被墙，你会看到大部分国内地区都无法连接，只有非常少数几个境外测试节点可以连接，于此同时你可以在 <code>Putty</code> 里面看到连接的请求</li>
+<li>若这台 VPS 可以使用，你会看到大部分的国内地区都可以连接，只是连接速度有所差异，个别节点无法连接可以忽略，不会有影响，你会在 <code>Putty</code> 里面看到相当多的请求</li>
+<li>在 <code>Putty</code> 中按下 <code>Ctrl+C</code> 来终止 Web 服务器运行，并删除测试用网页</li>
+</ul>
+<pre class="hljs"><code><div>rm -rf index.html
+</div></code></pre>
+<ul>
+<li>如果你找到了一台可以用的 VPS 那么恭喜，我们进入下一个步骤</li>
+</ul>
+</li>
+</ul>
+<h2 id="be-the-bad-boy-%E2%80%94%E2%80%94-%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84%E6%A2%AF%E5%AD%90">Be the bad boy —— 开始部署你的梯子</h2>
+<ul>
+<li>强烈不推荐使用任何 <code>一键部署脚本</code>，这类脚本往往使用你完全不了解的第三方的源码进行编译，或者调用外部脚本，非常的不安全</li>
+<li>让我们从一大串不知名的命令开始，如果你使用的是 CentOS，那么这些命令你可以直接复制进去执行，执行结束后服务器会自动重启，<code>Putty</code> 会断开连接，稍等几分钟重新连接即可，你可以用这几分钟看看后面我大致解释这段命令做了哪些事情</li>
+</ul>
+<pre class="hljs"><code><div>yum update -y &amp;&amp; yum install yum-utils epel-release -y &amp;&amp; \
+yum install <span class="hljs-built_in">bind</span>-utils htop iftop iptraf jq fail2ban lsof vim wget zip unzip bash-completion -y &amp;&amp; \
+rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm &amp;&amp; \
+yum --enablerepo=elrepo-kernel install kernel-ml-devel kernel-ml -y &amp;&amp; \
+grub2-mkconfig &amp;&amp; grub2-set-default 0 &amp;&amp; yum install iptables-services ipset-service net-tools -y &amp;&amp; \
+wget -qO /etc/sysconfig/iptables https://gist.githubusercontent.com/cnrat/11ec6a57cf0eb8f6f7a120dbac2df1f2/raw/iptables &amp;&amp; \
+systemctl stop firewalld &amp;&amp; systemctl <span class="hljs-built_in">disable</span> firewalld &amp;&amp; systemctl <span class="hljs-built_in">enable</span> iptables &amp;&amp; \
+systemctl start iptables &amp;&amp; systemctl <span class="hljs-built_in">enable</span> ipset &amp;&amp; systemctl start ipset &amp;&amp; \
+wget -qO /etc/sysctl.d/00-net-knl-opt.conf https://gist.githubusercontent.com/cnrat/11ec6a57cf0eb8f6f7a120dbac2df1f2/raw/00-net-knl-opt.conf &amp;&amp; \
+wget -qO /etc/security/limits.d/00-nofile.conf https://gist.githubusercontent.com/cnrat/11ec6a57cf0eb8f6f7a120dbac2df1f2/raw/00-nofile.conf &amp;&amp; \
+sysctl --system &amp;&amp; yum groupinstall <span class="hljs-string">"Development Tools"</span> -y &amp;&amp; \
+yum install pcre pcre-devel openssl openssl-devel xmlto zlib zlib-devel -y &amp;&amp; \
+wget https://codeload.github.com/cnrat/shadowsocks-libev-long-live-ota/zip/master &amp;&amp; \
+unzip master &amp;&amp; <span class="hljs-built_in">cd</span> shadowsocks-libev-long-live-ota-master/ &amp;&amp; ./configure &amp;&amp; make &amp;&amp; make install &amp;&amp; \
+wget -qO /etc/profile.d/neconsole.sh <span class="hljs-string">"https://gist.githubusercontent.com/cnrat/5714f54daa7620e081c120d5072ccff3/raw/neconsole.sh?rnd=<span class="hljs-variable">$(date +%s)</span>"</span> &amp;&amp; \
+yum install haveged -y &amp;&amp; systemctl <span class="hljs-built_in">enable</span> haveged &amp;&amp; systemctl start haveged &amp;&amp; <span class="hljs-built_in">cd</span> /root/ &amp;&amp; \
+wget https://gist.githubusercontent.com/cnrat/11ec6a57cf0eb8f6f7a120dbac2df1f2/raw/f2bconf.zip &amp;&amp; \
+unzip f2bconf.zip -d / &amp;&amp; <span class="hljs-built_in">cd</span> /root/ &amp;&amp; wget https://github.com/fail2ban/fail2ban/archive/0.10.4.tar.gz &amp;&amp; \
+tar zxvf 0.10.4.tar.gz &amp;&amp; <span class="hljs-built_in">cd</span> fail2ban-0.10.4 &amp;&amp; python setup.py install &amp;&amp; <span class="hljs-built_in">cd</span> /root/ &amp;&amp; \
+wget -qO /root/.vimrc https://gist.githubusercontent.com/cnrat/11ec6a57cf0eb8f6f7a120dbac2df1f2/raw/vimrc &amp;&amp; \
+reboot
+</div></code></pre>
+<blockquote>
+<ul>
+<li>更新已经安装的软件，并安装编译 Shadowsocks 必须的依赖</li>
+<li>安装 <code>iptables</code> 和 <code>ipset</code> 防火墙，替代 <code>CentOS 7</code> 引入的蹩脚的 <code>firewalld</code></li>
+<li>进行系统内核参数优化（包括启用 <code>BBR</code> 拥塞算法、优化 <code>TCP</code> 性能等等）</li>
+<li>下载、编译、安装我自己维护的 <code>shadowsocks-libev</code> 源代码，这个代码去掉了 <code>breakwa11</code> 等人增加的垃圾</li>
+<li>下载我自己维护的脚本控制台程序 <code>neconsole</code>，这个会在后面讲到，是管理 VPS 的主要集成命令工具</li>
+<li>安装 <code>neconsole</code> 必须的一些依赖（包括升级 <code>fail2ban</code>、安装 <code>lsof</code>、<code>haveged</code> 等等）</li>
+</ul>
+</blockquote>
+<ul>
+<li>如同我们刚才所说的，如果你认真看了上面的内容，那么你的 VPS 应该已经重启完毕了，重新通过 <code>Putty</code> 连接</li>
+<li>执行防护程序策略初始化，这里包括 <code>Honeypot</code> 和 <code>firewall-manualban</code> 两部分</li>
+</ul>
+<pre class="hljs"><code><div>grep -v <span class="hljs-string">'^#'</span> /etc/services | grep -v <span class="hljs-string">'^\s*$'</span> | awk <span class="hljs-string">'{print $2}'</span> | awk -F <span class="hljs-string">'[/]'</span> <span class="hljs-string">'{print $1}'</span> | sort -n | uniq | grep -vE <span class="hljs-string">"<span class="hljs-variable">$(echo $(lsof -Pn -i tcp  -s tcp:listen -a | sed '1d' | awk '{print $9}' | awk -F '[:]' '{print $NF}' | sort -n | uniq)</span> | tr ' ' '|' | awk '{printf "</span>^(%s)$<span class="hljs-string">", <span class="hljs-variable">$0</span>}')"</span> &gt; /etc/honeypot &amp;&amp; \
+neconsole firewall update
+</div></code></pre>
+<blockquote>
+<p>这里可能会有一些错误提示，没有关系，因为更新策略后的防火墙还没有启动，我实在是懒得优化这里了</p>
+</blockquote>
+<ul>
+<li>初始化系统服务</li>
+</ul>
+<pre class="hljs"><code><div>neconsole firewall
+neconsole shadowsocks
+neconsole honeypot
+systemctl <span class="hljs-built_in">enable</span> firewall-manualban.service
+systemctl start firewall-manualban.service
+systemctl <span class="hljs-built_in">enable</span> honeypot.service
+systemctl start honeypot.service
+systemctl <span class="hljs-built_in">enable</span> shadowsocks.service
+systemctl start shadowsocks.service
+systemctl <span class="hljs-built_in">enable</span> fail2ban.service
+systemctl start fail2ban.service
+</div></code></pre>
+<blockquote>
+<p>这个执行过程需要一点点时间，一定要确保最后一个命令按下 <code>Enter</code> 执行，不要让最后一个命令只保持输入完成却没有回车的状态，如果不是很熟悉操作，也可以一条一条的执行，中间的一些错误提示都不用担心</p>
+</blockquote>
+<ul>
+<li>配置一个足够大的页面文件，因为 <code>Vultr</code> 给的内存都非常非常抠门，所以我们利用 SSD 高速存储增加一点虚拟内存</li>
+</ul>
+<pre class="hljs"><code><div>dd <span class="hljs-keyword">if</span>=/dev/zero of=/etc/swap bs=1M count=1024
+chmod go-r /etc/swap
+mkswap /etc/swap
+swapon /etc/swap
+</div></code></pre>
+<pre class="hljs"><code><div>vim /etc/fstab
+</div></code></pre>
+<blockquote>
+<p>这里需要编辑一下 <code>/etc/fstab</code> 并将如下内容作为新的一行加到文件末尾，如果不熟悉 <code>vim</code> 操作可以随便找个教程学习一下</p>
+</blockquote>
+<pre class="hljs"><code><div>/etc/swap                                 swap                    swap    defaults        0 0
+</div></code></pre>
+<blockquote>
+<p>记得最后要按 <code>ESC</code> 退出编辑状态，然后输入 <code>:wq</code> 保存并退出</p>
+</blockquote>
+<ul>
+<li>添加一个或多个 shadowsocks 账户，这里的 <code>xxx</code> 可以任意命名，简短够区分就好，不要使用中文</li>
+</ul>
+<pre class="hljs"><code><div>vim /etc/shadowsocks-libev/xxx.json
+</div></code></pre>
+<blockquote>
+<p>将以下配置粘贴到 vim 中</p>
+</blockquote>
+<pre class="hljs"><code><div>{
+    <span class="hljs-attr">"server"</span>:<span class="hljs-string">"0.0.0.0"</span>,
+    <span class="hljs-attr">"server_port"</span>:<span class="hljs-number">8225</span>,
+    <span class="hljs-attr">"local_port"</span>:<span class="hljs-number">1080</span>,
+    <span class="hljs-attr">"password"</span>:<span class="hljs-string">"5wyx623SEpDpwct7DDzqBJ934vJmSXxz"</span>,
+    <span class="hljs-attr">"timeout"</span>:<span class="hljs-number">300</span>,
+    <span class="hljs-attr">"auth"</span>:<span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"accesslog"</span>:<span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"fast_open"</span>:<span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"method"</span>:<span class="hljs-string">"aes-256-cfb"</span>
+}
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数含义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>server</td>
+<td>服务器地址</td>
+<td>默认使用 <code>0.0.0.0</code> 即可，无需位置为公网 IP</td>
+</tr>
+<tr>
+<td>server_port</td>
+<td>服务器端口</td>
+<td><code>1-65535</code>，但绝对不可以使用 <code>/etc/honeypot</code> 列出的端口</td>
+</tr>
+<tr>
+<td>local_port</td>
+<td>本地端口</td>
+<td>这个参数服务器配置不使用，无意义</td>
+</tr>
+<tr>
+<td>password</td>
+<td>服务器密码</td>
+<td>建议使用 <a href="http://www.zhongguosou.com/shopping/password_generate.aspx">密码生成工具</a> 创建 <code>32</code> 位以上随机密码</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>连接超时时间</td>
+<td>单位：秒，个人用服务器可以设置为 300，公共服务器必须缩短这个时间防止出现性能问题</td>
+</tr>
+<tr>
+<td>auth</td>
+<td>是否使用 OTA 认证</td>
+<td>必须使用 <code>false</code>，OTA 已经被废弃</td>
+</tr>
+<tr>
+<td>accesslog</td>
+<td>是否记录日志信息</td>
+<td><code>true</code> 或者 <code>false</code>，若为 <code>true</code>，会在 <code>/var/log/shadowsocks.log</code> 中记录访问请求备查，个人用服务器建议配置为 <code>false</code></td>
+</tr>
+<tr>
+<td>fast_open</td>
+<td>是否支持 fast_open 特性</td>
+<td><code>true</code> 或者 <code>false</code>，我们在前面优化内核的时候已经开启了 <code>fast_open</code>，因此可以打开</td>
+</tr>
+<tr>
+<td>method</td>
+<td>加密方式</td>
+<td>建议配置为 <code>aes-256-cfb</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>FAQ：如何判断端口是否在 <code>/etc/honeypot</code> 中? 输入命令 <code>grep '^8225' /etc/honeypot</code> 就可以查询 8225 端口是否在文件中列出，若没有结果回显，则可以安全使用这个端口号
+FAQ：如何配置多个用户？可以配置多个 <code>/etc/shadowsocks-libev/xxx.json</code> 文件（文件名不可以重复），内容只需要修改 <code>server_port</code> 和 <code>password</code> 两项即可，server_port 必须使用不相同的端口，password 出于安全考虑建议不同用户使用不同密码</p>
+</blockquote>
+<h2 id="pay-day-%E2%80%94%E2%80%94-%E5%8D%B3%E5%B0%86%E5%A4%A7%E5%8A%9F%E5%91%8A%E6%88%90">Pay day —— 即将大功告成</h2>
+<ul>
+<li>让我们再一次重启服务器，确保之前的配置全部生效</li>
+</ul>
+<pre class="hljs"><code><div>reboot
+</div></code></pre>
+<ul>
+<li>等待几分钟，并重新连接 <code>Putty</code></li>
+<li>检查防火墙运行状态</li>
+</ul>
+<pre class="hljs"><code><div>neconsole firewall
+</div></code></pre>
+<blockquote>
+<p>你会看到类似如下的结果，大致分为 3 个段落</p>
+<ul>
+<li>服务器信息</li>
+<li>静态防火墙以及 Ping 拦截状态</li>
+<li>动态防火墙状态（方括号中的数字是检测并已经封禁的外部 IP 数量）</li>
+</ul>
+</blockquote>
+<pre class="hljs"><code><div>------------------------------------------------------------------------------------------------------
+ Hostname:                                        [ vultr.guest ]
+ Wan IP Address:                                  [ 123.1.17.12 ]
+ Kernel Release:                                  [ 4.20.7 ]
+ TCP Fast Open:                                   [ Enabled ]
+ TCP Congestion Control:                          [ bbr ]
+ Memory Statics(available/total):                 [ 676.72 MiB / 985.25 MiB ]
+------------------------------------------------------------------------------------------------------
+ Firewall 'Manual-ban-set' state:                 [ Enabled ]
+  - loaded in firewall:                           [ 411574 ]
+  - memory used:                                  [ 482.57 KiB ]
+  - stored in profile:                            [ 411574 ]
+  - packets blocked:                              [ 4250 ]
+ Firewall 'Manual-ban-set' logging:               [ Enabled ]
+  - storage used:                                 [ 1.00 MiB ]
+ Ping over WAN state:                             [ Disallowed ]
+------------------------------------------------------------------------------------------------------
+ Fail2ban service state:                          [ Enabled ]
+  - 'honeypot' banned:                            [ 46 ]
+  - 'shadowsocks-libev' banned:                   [ 34 ]
+  - 'sshd' banned:                                [ 0 ]
+------------------------------------------------------------------------------------------------------
+</div></code></pre>
+<ul>
+<li>检查 shadowsocks-libev 运行状态</li>
+</ul>
+<pre class="hljs"><code><div>neconsole shadowsocks
+neconsole shadowsocks activities
+</div></code></pre>
+<blockquote>
+<p>前一个命令查看 shadowsocks-libev 服务运行状况
+后一个命令查看所有连接到你服务器的用户状况</p>
+</blockquote>
+<ul>
+<li>恭喜你现在可以通过任何支持 SS 的客户端连接了，比如 <code>小火箭</code>、<code>Surge</code>、<code>Potatso 2</code> 等等</li>
+</ul>
+<h2 id="what-if-%E2%80%94%E2%80%94-%E5%90%8E%E8%AE%B0">What if ... —— 后记</h2>
+<ul>
+<li>服务器采用了几近苛刻的访问控制策略（这也是安全可靠的基础），如果你使用了错误的密码，无论是 SSH 还是 shadowsocks-libev，都会立刻导致你的 IP 地址被动态封禁，因此尽量避免手工输入那么长的密码吧，如果不幸被封禁了，可以尝试通过 <a href="https://www.ipip.net/ip.html">ipip</a> 网站查询自己的外部 IP 地址，然后重启路由器（对于手机来说，打开再关闭飞行模式）开获得新的公网 IP 地址，如果要解除某个已经封禁的 IP 地址，在你可以重新连接 <code>Putty</code> 以后，执行以下命令，其中的 <code>xxx.xxx.xxx.xxx</code> 是你被封禁的地址（换句话说你必须先更换 IP 以便重新连接 SSH，再解除旧 IP 的封禁）</li>
+</ul>
+<pre class="hljs"><code><div>neconsole firewall unban xxx.xxx.xxx.xxx
+</div></code></pre>
+<ul>
+<li>
+<p>服务器拥有多达 5741 个蜜罐策略（对应 5741 个端口），几乎涵盖了所有常见服务端口——这背后的含义是 <code>任何人，没有在允许的时间、访问允许的端口，就一律是坏人</code>，这也是为什么前面提到 server_port 不可以使用 <code>/etc/honeypot</code> 列出的端口，如果错用了 5741 中的任何 1 个端口，都会导致连接到这个端口的 IP 地址被封禁，这种策略是任何你在网上可以看到的教程中都没有的，这也是为什么我的梯子可以运行数年的原因之一</p>
+</li>
+<li>
+<p>当梯子无法使用的时候，你应该遵循如下程序（Procedure）分析问题</p>
+<ul>
+<li>判断网络连接是否正常，打开百度试试看</li>
+<li>判断是否被服务器误封 IP，常见于刚刚修改了客户端上的配置，罕见于网络极度不稳定，重启路由器或者开关飞行模式获得新的公网 IP，再通过 <code>Putty</code> 分析确定</li>
+<li>判断是否运营商做了 QoS 限流，部分运营商会限制长时间、大流量的外网访问以节约跨境结算成本，限制时间一般在数分钟到十余分钟不等，耐心等待，或通过重启路由器更换本地公网 IP 规避，北京联通很少见这样做</li>
+<li>保持冷静，和我联系</li>
+</ul>
+</li>
+<li>
+<p>应该尽量避免通过梯子访问任何国内的服务，比如 <code>百度</code>、<code>腾讯</code>、<code>淘宝</code>、<code>京东</code> 等等，这可以通过使用路由器的 gfwlist 模式或配置手机客户端的 .cn + geo CN 方式实现，这里不展开了，可以 Google 相关教程</p>
+</li>
+<li>
+<p>如果你不厌其烦的看到了这里，并且成功完成了前面提到的所有内容，那么恭喜你，你对 GFW 和梯子的理解已经超过你周围所有朋友知识的总合，keep a low profile，amigo</p>
+</li>
+</ul>
+
+</body>
+</html>
