@@ -63,6 +63,14 @@
     });
   </script>
   <script type="text/javascript">
+    $(document).on('shown.bs.collapse', '.collapse', function () {
+      $(this).prev().find('btn').fadeIn();
+    });
+    $(document).on('hide.bs.collapse', '.collapse', function () {
+      $(this).prev().find('btn').fadeOut();
+    });
+  </script>
+  <script type="text/javascript">
     var chartOptions = {
       vAxis: {
         viewWindow: {
@@ -129,16 +137,6 @@
             </div>
           </div>
         </div>
-        <script type="text/javascript">
-          $(function () {
-            $(".collapse").on('shown.bs.collapse', function () {
-              $(this).prev().find('btn').fadeIn();
-            });
-            $(".collapse").on('hide.bs.collapse', function () {
-              $(this).prev().find('btn').fadeOut();
-            });
-          })
-        </script>
       </div>
     </div>
   </div>
