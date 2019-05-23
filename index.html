@@ -16,6 +16,11 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <link type="text/css" rel="stylesheet" href="css/custom.css" />
   <script type="text/javascript">
+    $(document).ready(function () {
+      $('#pageHeader').load('navi.html');
+    })
+  </script>
+  <script type="text/javascript">
     function OnGoogleChartAPILoaded() {
       $.ajax({
         url: "data/chartDatas.json?r=" + (new Date()).getTime(),
@@ -107,38 +112,7 @@
   <div class="container" style="width:80%;">
     <div class="row clearfix">
       <div class="col-md-12 column">
-        <div class="page-header">
-          <h1 style="color:lime; text-shadow: 0 0 5px white, 0 0 55px white;">
-            过去
-            <strong>30</strong>
-            日攻击检测
-            <small style="color:limegreen">『ね』Security</small>
-          </h1>
-        </div>
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand disabled" href="#">『ね』Security</a>
-            </div>
-            <ul class="nav navbar-nav">
-              <li class="active">
-                <a href="index.html">IP Detected</a>
-              </li>
-              <li>
-                <a href="#" class="disabled">IP Geo</a>
-              </li>
-              <li>
-                <a href="download/Outline.apk">Outline(Android)</a>
-              </li>
-              <li>
-                <a href="about.html">About</a>
-              </li>
-              <li>
-                <a href="javascript:GetSummaryImage()">Summary2Image</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <div id="pageHeader"></div>
         <div id="chartDiv" class="panel-group">
         </div>
         <div class="panel" id="panel_tample" style="display: none;">
