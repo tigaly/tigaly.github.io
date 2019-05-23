@@ -64,10 +64,10 @@
   </script>
   <script type="text/javascript">
     $(document).on('shown.bs.collapse', '.collapse', function () {
-      $(this).prev().find('btn').fadeIn();
+      $(this).prev('.panel-heading').find('btn').fadeIn();
     });
     $(document).on('hide.bs.collapse', '.collapse', function () {
-      $(this).prev().find('btn').fadeOut();
+      $(this).prev('.panel-heading').find('btn').fadeOut();
     });
   </script>
   <script type="text/javascript">
