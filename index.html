@@ -21,18 +21,6 @@
     })
   </script>
   <script type="text/javascript">
-    $(document).ready(function () {
-      $(".collapse").on('shown.bs.collapse', function () {
-        alert('shown.bs.collapse');
-        $(this).prev().find('btn').fadeIn();
-      });
-      $(".collapse").on('hide.bs.collapse', function () {
-        alert('hide.bs.collapse');
-        $(this).prev().find('btn').fadeOut();
-      });
-    })
-  </script>
-  <script type="text/javascript">
     function OnGoogleChartAPILoaded() {
       $.ajax({
         url: "data/chartDatas.json?r=" + (new Date()).getTime(),
@@ -73,6 +61,16 @@
       'packages': ['corechart'],
       callback: OnGoogleChartAPILoaded
     });
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(".collapse").on('shown.bs.collapse', function () {
+        $(this).prev().find('btn').fadeIn();
+      });
+      $(".collapse").on('hide.bs.collapse', function () {
+        $(this).prev().find('btn').fadeOut();
+      });
+    })
   </script>
   <script type="text/javascript">
     var chartOptions = {
