@@ -41,8 +41,8 @@
               chartName);
             panel.children('.panel-heading').children('.panel-title').html('<strong>' + chartName +
               '</strong>&nbsp;(' + jsonData[chartName].lastupdate + ')');
-            panel.children('.panel-heading').children('.btn').attr('href', 'javascript:GetSummaryImage(' +
-              'panel_' + chartName + ')');
+            // panel.children('.panel-heading').children('.btn').attr('href', 'javascript:GetSummaryImage(' +
+            //   'panel_' + chartName + ')');
             panel.children('.panel-collapse').attr('id', 'panel_collapse_' + chartName);
             panel.children('.panel-collapse').children('.panel-body').children('.chart').attr('id', 'chart_' +
               chartName);
