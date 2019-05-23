@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -14,6 +14,11 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
   <link type="text/css" rel="stylesheet" href="css/custom.css" />
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#pageHeader').load('navi.html');
+    })
+  </script>
 </head>
 
 <body onload="">
@@ -22,30 +27,7 @@
   <div class="container" style="width:80%;">
     <div class="row clearfix">
       <div class="col-md-12 column">
-        <div class="page-header">
-          <h1 style="color:lime; text-shadow: 0 0 5px white, 0 0 55px white;">
-            关于
-            <small style="color:limegreen">『ね』Security</small>
-          </h1>
-        </div>
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand disabled" href="#">『ね』Security</a>
-            </div>
-            <ul class="nav navbar-nav">
-              <li>
-                <a href="index.html">IP Detected</a>
-              </li>
-              <li>
-                <a href="#" class="disabled">IP Geo</a>
-              </li>
-              <li class="active">
-                <a href="about.html">About</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <div id="pageHeader"></div>
         <div class="panel panel-default" id="panel_about">
           <div class="panel-heading">
             关于『ね』Security
