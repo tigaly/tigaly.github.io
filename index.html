@@ -117,7 +117,7 @@
     function GetSummaryImage(id) {
       var node = document.getElementById(id);
       domtoimage.toBlob(node).then(function (blob) {
-        saveAs(blob, $('#' + id).children('.panel-heading').children('.panel-title').text().trim() +
+        saveAs(blob, $('#' + id).parent().children('.panel-heading').children('.panel-title').text().trim() +
           '.png');
       }).catch(function (error) {
         // console.error('oops, something went wrong!', error);
