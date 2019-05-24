@@ -1,10 +1,33 @@
 <html>
 
 <head>
-	<title>DumpTheGit - 『ね』Security</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+		integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<style>
+		html,
+		body,
+			{
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+	</style>
+
 	<script>
 		google.charts.load('current', { 'packages': ['table'] });
 
@@ -110,52 +133,56 @@
 </head>
 
 <body>
-	<div class="row" id="eventForms">
-		<div class="col-md-12">
-			<div class="" style="margin: 1%">
-				<table class="table" style="box-shadow: 0px 0px 10px 3px #e0e0e0;border-radius: 5px;">
-					<tr>
-						<td><label for="txtClassroomName">Query : </label> <input type="text" id="queryTerm" width="150"
-								class="form-control" name="queryTerm" placeholder="String to Search ..."></td>
-						<td><label for="txtClassroomName">Access Token : </label> <input type="text" id="accessToken" width="150"
-								class="form-control" name="accessToken" placeholder="Provide your Access Token ..."></td>
-						<td><label for="txtClassroomName">Vulnerable Terms : </label>
-							<select class="form-control" name="vulnerableTerm" id="vulnerableTerm">
-								<option value="password" selected="true">password</option>
-								<option value="secret">secret</option>
-								<option value="secret_key">secret_key</option>
-								<option value="token">token</option>
-								<option value="token_key">token_key</option>
-								<option value="passkey">passkey</option>
-								<option value="pass_key">pass_key</option>
-								<option value="passphrase">passphrase</option>
-								<option value="api_key">api_key</option>
-								<option value="client_secret">client_secret</option>
-								<option value="passcode">passcode</option>
-							</select></td>
-					</tr>
-					<tr>
-						<td colspan="3"> <input type="button" id="btnSearchData" value="Search Github" class="btn btn-info"
-								onclick="searchARNDataNew()"></td>
-					</tr>
-				</table>
-				<div align="center">
-					<div id='waitingImg' style="display: none;">Searching...</div>
+	<h1 align="center">DumpTheGit</h1>
+	<div class="container-fluid">
+		<div class="row" id="eventForms">
+			<div class="col-md-12">
+				<div class="dropdown" style="margin-top: 1%;">
+					<table class="table" style="box-shadow: 0px 0px 10px 3px #e0e0e0;border-radius: 10px;">
+						<tr>
+							<td><label for="txtClassroomName">Query : </label> <input type="text" id="queryTerm" width="150"
+									class="form-control" name="queryTerm" placeholder="String to Search ..."></td>
+							<td><label for="txtClassroomName">Access Token : </label> <input type="text" id="accessToken" width="150"
+									class="form-control" name="accessToken" placeholder="Provide your Access Token ..."></td>
+							<td><label for="txtClassroomName">Vulnerable Terms : </label>
+								<select class="form-control" name="vulnerableTerm" id="vulnerableTerm">
+									<option value="password" selected="true">password</option>
+									<option value="secret">secret</option>
+									<option value="secret_key">secret_key</option>
+									<option value="token">token</option>
+									<option value="token_key">token_key</option>
+									<option value="passkey">passkey</option>
+									<option value="pass_key">pass_key</option>
+									<option value="passphrase">passphrase</option>
+									<option value="api_key">api_key</option>
+									<option value="client_secret">client_secret</option>
+									<option value="passcode">passcode</option>
+								</select></td>
+						</tr>
+						<tr>
+							<td colspan="3"> <input type="button" id="btnSearchData" value="Search Github" class="btn btn-info"
+									onclick="searchARNDataNew()"></td>
+						</tr>
+					</table>
+					<div align="center">
+						<div id='waitingImg' style="display: none;">Searching...</div>
+					</div>
+				</div>
+
+				<div id='dataTableDiv'>
 				</div>
 			</div>
-			<div id='dataTableDiv'>
+		</div>
+		<div class="row">
+			<div class="col-xs-1">
+			</div>
+			<div class="col-xs-10">
+				<hr>
+				<span id="tblResult"></span>
+			</div>
+			<div class="col-xs-1">
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-1">
-		</div>
-		<div class="col-xs-10">
-			<span id="tblResult"></span>
-		</div>
-		<div class="col-xs-1">
-		</div>
-	</div>
 </body>
 
 </html>
