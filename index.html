@@ -53,7 +53,7 @@
               chartName);
             $('#chartDiv').append(panel);
             var chartData = google.visualization.arrayToDataTable(jsonData[chartName].data);
-            var chart = new google.visualization.LineChart(document.getElementById('chart_' + chartName));
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_' + chartName));
             chart.draw(chartData, chartOptions);
             if (chartName != "Summary") {
               $('#panel_collapse_' + chartName).removeClass('in');
@@ -103,7 +103,12 @@
       legend: {
         position: 'top'
       },
-      backgroundColor: 'black'
+      backgroundColor: 'black',
+      chartArea: {
+        left: '7.5%',
+        width: '90%',
+        height: '65%'
+      }
     };
   </script>
   <script type="text/javascript" src="js/dom-to-image.min.js"></script>
