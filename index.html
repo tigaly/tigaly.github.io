@@ -42,7 +42,7 @@
             panel.children('.panel-heading').children('.panel-title').html('<strong>' + chartName +
               '</strong>&nbsp;(' + jsonData[chartName].lastupdate + ')');
             panel.children('.panel-heading').children('.btn').attr('href', 'javascript:GetSummaryImage("' +
-              'panel_' + chartName + '")');
+              'panel_collapse_' + chartName + '")');
             if (chartName == "Summary") {
               panel.children('.panel-heading').children('.btn').show();
             } else {
