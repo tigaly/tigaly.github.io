@@ -14,11 +14,23 @@
   <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
   <link type="text/css" rel="stylesheet" href="css/custom.css" />
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    function loadPageContent(htmlUrl) {
+      $('#pageContent').load(htmlUrl);
+    }
+  </script>
 </head>
 
 <body onload="">
   <script type="text/javascript" src="js/bg_matrix.js"></script>
   <br />
+  <div id="pageHeader"></div>
+  <div id="pageNavi"></div>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#pageNavi').load('navi.html');
+    })
+  </script>
   <div id="pageContent" class="container" style="width:80%;">
   </div>
   <script type="text/javascript">
