@@ -24,17 +24,14 @@
 <body onload="">
   <script type="text/javascript" src="js/bg_matrix.js"></script>
   <br />
-  <div id="pageHeader"></div>
-  <div id="pageNavi"></div>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $('#pageNavi').load('navi.html');
-    })
-  </script>
-  <div id="pageContent" class="container" style="width:80%;">
+  <div class="container" style="width:80%;">
+    <div id="pageHeader"></div>
+    <div id="pageNavi"></div>
+    <div id="pageContent"></div>
   </div>
   <script type="text/javascript">
     $(document).ready(function () {
+      $('#pageNavi').load('navi.html');
       $('#pageContent').load('attacksource.html');
     })
   </script>
