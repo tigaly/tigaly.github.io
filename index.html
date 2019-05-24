@@ -53,7 +53,7 @@
               chartName);
             $('#chartDiv').append(panel);
             var chartData = google.visualization.arrayToDataTable(jsonData[chartName].data);
-            var chart = new google.visualization.AreaChart(document.getElementById('chart_' + chartName));
+            var chart = new google.visualization.LineChart(document.getElementById('chart_' + chartName));
             chart.draw(chartData, chartOptions);
             if (chartName != "Summary") {
               $('#panel_collapse_' + chartName).removeClass('in');
