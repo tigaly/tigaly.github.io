@@ -1,6 +1,7 @@
 <html>
 
 <head>
+	<title>DumpTheGit - 『ね』Security</title>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
@@ -109,54 +110,52 @@
 </head>
 
 <body>
-	<h1 align="center">DumpTheGit</h1>
-	<div class="container-fluid">
-		<div class="row" id="eventForms">
-			<div class="col-md-12">
-				<div class="dropdown" style="">
-					<table class="table" style="box-shadow: 0px 0px 10px 3px #e0e0e0;border-radius: 5px;">
-						<tr>
-							<td><label for="txtClassroomName">Query : </label> <input type="text" id="queryTerm" width="150"
-									class="form-control" name="queryTerm" placeholder="String to Search ..."></td>
-							<td><label for="txtClassroomName">Access Token : </label> <input type="text" id="accessToken" width="150"
-									class="form-control" name="accessToken" placeholder="Provide your Access Token ..."></td>
-							<td><label for="txtClassroomName">Vulnerable Terms : </label>
-								<select class="form-control" name="vulnerableTerm" id="vulnerableTerm">
-									<option value="password" selected="true">password</option>
-									<option value="secret">secret</option>
-									<option value="secret_key">secret_key</option>
-									<option value="token">token</option>
-									<option value="token_key">token_key</option>
-									<option value="passkey">passkey</option>
-									<option value="pass_key">pass_key</option>
-									<option value="passphrase">passphrase</option>
-									<option value="api_key">api_key</option>
-									<option value="client_secret">client_secret</option>
-									<option value="passcode">passcode</option>
-								</select></td>
-						</tr>
-						<tr>
-							<td colspan="3"> <input type="button" id="btnSearchData" value="Search Github" class="btn btn-info"
-									onclick="searchARNDataNew()"></td>
-						</tr>
-					</table>
-					<div align="center">
-						<div id='waitingImg' style="display: none;">Searching...</div>
-					</div>
-				</div>
-				<div id='dataTableDiv'>
+	<div class="row" id="eventForms">
+		<div class="col-md-12">
+			<div class="dropdown">
+				<table class="table" style="box-shadow: 0px 0px 10px 3px #e0e0e0;border-radius: 5px;">
+					<tr>
+						<td><label for="txtClassroomName">Query : </label> <input type="text" id="queryTerm" width="150"
+								class="form-control" name="queryTerm" placeholder="String to Search ..."></td>
+						<td><label for="txtClassroomName">Access Token : </label> <input type="text" id="accessToken" width="150"
+								class="form-control" name="accessToken" placeholder="Provide your Access Token ..."></td>
+						<td><label for="txtClassroomName">Vulnerable Terms : </label>
+							<select class="form-control" name="vulnerableTerm" id="vulnerableTerm">
+								<option value="password" selected="true">password</option>
+								<option value="secret">secret</option>
+								<option value="secret_key">secret_key</option>
+								<option value="token">token</option>
+								<option value="token_key">token_key</option>
+								<option value="passkey">passkey</option>
+								<option value="pass_key">pass_key</option>
+								<option value="passphrase">passphrase</option>
+								<option value="api_key">api_key</option>
+								<option value="client_secret">client_secret</option>
+								<option value="passcode">passcode</option>
+							</select></td>
+					</tr>
+					<tr>
+						<td colspan="3"> <input type="button" id="btnSearchData" value="Search Github" class="btn btn-info"
+								onclick="searchARNDataNew()"></td>
+					</tr>
+				</table>
+				<div align="center">
+					<div id='waitingImg' style="display: none;">Searching...</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-1">
-			</div>
-			<div class="col-xs-10">
-				<span id="tblResult"></span>
-			</div>
-			<div class="col-xs-1">
+			<div id='dataTableDiv'>
 			</div>
 		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-1">
+		</div>
+		<div class="col-xs-10">
+			<span id="tblResult"></span>
+		</div>
+		<div class="col-xs-1">
+		</div>
+	</div>
 </body>
 
 </html>
