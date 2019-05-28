@@ -48,17 +48,17 @@ span {
   }
 }
 
-.pageHeader {
+.clsHeader {
   z-index: 9999;
   opacity: 0.95;
 }
 
-.pageNavi {
+.clsNavi {
   z-index: 999;
   opacity: 0.95;
 }
 
-.pageContent {
+.clsContent {
   z-index: 99;
   opacity: 0.75;
 }
