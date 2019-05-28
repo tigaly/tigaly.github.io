@@ -25,8 +25,12 @@ var columns = c.width / font_size; //number of columns for the rain
 var drops = [];
 //x below is the x coordinate
 //1 = y co-ordinate of the drop(same for every drop initially)
-for (var x = 0; x < columns; x++)
-  drops[x] = Math.random();
+for (var x = 0; x < columns; x++) {
+  if (Math.random() > 0.975)
+    drops[x] = 1;
+  else
+    drops[x] = 0;
+}
 
 //drawing the characters
 function draw() {
@@ -61,8 +65,12 @@ $(window).resize(function () {
   $('#c_matrix').attr('width', window.innerWidth);
   columns = $('#c_matrix').attr('width') / font_size;
   drops = [];
-  for (var x = 0; x < columns; x++)
-    drops[x] = Math.random();
+  for (var x = 0; x < columns; x++) {
+    if (Math.random() > 0.975)
+      drops[x] = 1;
+    else
+      drops[x] = 0;
+  }
 });
 
 // setInterval(draw, 35);
