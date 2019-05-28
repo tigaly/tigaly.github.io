@@ -15,9 +15,19 @@
   <link type="text/css" rel="stylesheet" href="css/custom.css" />
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
-    function loadPageContent(htmlUrl) {
-      $('#pageContent').fadeOut().load(htmlUrl, function (response, status, xhr) {
+    function loadPageContent(container, htmlURL) {
+      /*
+      $('#' + containerID).fadeOut().load(htmlUrl, function (response, status, xhr) {
         $(this).fadeIn();
+      });
+      */
+      $.ajax({
+        url: htmlURL,
+        dataType: "html",
+        async: false,
+        success: function (html) {
+          $(containerID).html(html);
+        }
       });
     }
   </script>
@@ -33,9 +43,9 @@
   </div>
   <script type="text/javascript">
     $(document).ready(function () {
-      $('#pageHeader').load('header.html');
-      $('#pageNavi').load('navi.html');
-      $('#pageContent').load('attacksource.html');
+      loadPageContent('#pageHeader', 'header.html');
+      loadPageContent('#pageNavi', 'navi.html');
+      loadPageContent('#pageContent', 'attacksource.html');
     })
   </script>
 </body>
