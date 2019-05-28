@@ -26,7 +26,7 @@ var drops = [];
 //x below is the x coordinate
 //1 = y co-ordinate of the drop(same for every drop initially)
 for (var x = 0; x < columns; x++) {
-  if (Math.random() > 0.975)
+  if (Math.random() > 0.5)
     drops[x] = 1;
   else
     drops[x] = 0;
@@ -66,7 +66,7 @@ $(window).resize(function () {
   columns = $('#c_matrix').attr('width') / font_size;
   drops = [];
   for (var x = 0; x < columns; x++) {
-    if (Math.random() > 0.975)
+    if (Math.random() > 0.5)
       drops[x] = 1;
     else
       drops[x] = 0;
