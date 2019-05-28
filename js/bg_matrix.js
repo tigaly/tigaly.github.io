@@ -1,9 +1,10 @@
 $(document).ready(function () {
   // geting canvas by id c
   // var c = document.getElementById("c");
-  var c = document.createElement('canvas');
-  c.setAttribute('id', 'c_matrix');
-  c.setAttribute('style', 'position: fixed; top: 0px; left: 0px; z-index: 0; opacity: 0.75;');
+  // var c = document.createElement('canvas');
+  // c.setAttribute('id', 'c_matrix');
+  // c.setAttribute('style', 'position: fixed; top: 0px; left: 0px; z-index: 0; opacity: 0.75;');
+  c = $('#bgMatrix');
   document.body.appendChild(c);
   var ctx = c.getContext("2d");
 
@@ -55,8 +56,8 @@ $(document).ready(function () {
 });
 
 $(window).resize(function () {
-  $('#c_matrix').height = window.innerHeight;
-  $('#c_matrix').width = window.innerWidth;
+  $('#bgMatrix').height = window.innerHeight;
+  $('#bgMatrix').width = window.innerWidth;
 });
 
 // setInterval(draw, 35);
