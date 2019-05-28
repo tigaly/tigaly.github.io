@@ -26,6 +26,7 @@
       $.ajax({
         url: htmlURL,
         dataType: "html",
+        async: false,
         beforeSend: function () {
           // $(container).fadeOut();
         },
