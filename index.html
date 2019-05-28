@@ -28,13 +28,13 @@
         dataType: "html",
         async: false,
         beforeSend: function () {
-          // $(container).fadeOut();
+          $("body").css("cursor", "wait");
         },
         success: function (html) {
-          // $(container).html(html).fadeIn();
           $(container).fadeOut(500, function () {
             $(this).html(html).fadeIn();
           });
+          $("body").css("cursor", "default");
         }
       });
     }
