@@ -19,8 +19,8 @@
           }
           panel.children('.panel-heading').children('.panel-title').attr('href', '#panel_collapse_' +
             chartName);
-          panel.children('.panel-heading').children('.panel-title').html('<strong>' + chartName +
-            '</strong>&nbsp;(' + jsonData[chartName].lastupdate + ')');
+          panel.children('.panel-heading').children('.panel-title').html('' + chartName +
+            '&nbsp;(' + jsonData[chartName].lastupdate + ')');
           panel.children('.panel-heading').children('.btn').attr('href', 'javascript:GetSummaryImage("' +
             'panel_collapse_' + chartName + '")');
           if (chartName == "Summary") {
