@@ -1,3 +1,12 @@
+function resize(arr, size, defval) {
+  var delta = arr.length - size;
+  if (delta > 0) {
+    arr.length = size;
+  }
+  else {
+    while (delta++ < 0) { arr.push(defval); }
+  }
+}
 // geting canvas by id c
 // var c = document.getElementById("c");
 var c = document.createElement('canvas');
@@ -25,9 +34,7 @@ var columns = c.width / font_size; //number of columns for the rain
 var drops = [];
 //x below is the x coordinate
 //1 = y co-ordinate of the drop(same for every drop initially)
-for (var x = 0; x < columns; x++)
-  // drops[x] = Math.random() * $('#c_matrix').attr('height') / font_size;
-  drops[x] = 0;
+resize(drops, columns, c.height / font_size);
 
 //drawing the characters
 function draw() {
@@ -63,14 +70,3 @@ $(window).resize(function () {
   columns = $('#c_matrix').attr('width') / font_size;
   resize(drops, columns, 0);
 });
-
-function resize(arr, size, defval) {
-  var delta = arr.length - size;
-  if (delta > 0) {
-    arr.length = size;
-  }
-  else {
-    while (delta++ < 0) { arr.push(defval); }
-  }
-}
-// setInterval(draw, 35);
