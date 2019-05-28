@@ -48,21 +48,24 @@ span {
   }
 }
 
-.navbar {
+.pageHeader {
   z-index: 9999;
+  opacity: 0.95;
 }
 
-.panel {
+.pageNavi {
+  z-index: 999;
+  opacity: 0.95;
+}
+
+.pageContent {
+  z-index: 99;
   opacity: 0.75;
 }
 
 .panel-body {
   background-color: black;
   color: white;
-}
-
-.navbar {
-  opacity: 0.85;
 }
 
 .disabled {
