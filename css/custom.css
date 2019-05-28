@@ -50,17 +50,20 @@ span {
 
 .clsHeader {
   z-index: 9999;
-  opacity: 0.95;
+  opacity: 0.75;
+  position: relative;
 }
 
 .clsNavi {
   z-index: 999;
   opacity: 0.95;
+  position: relative;
 }
 
 .clsContent {
   z-index: 99;
   opacity: 0.75;
+  position: relative;
 }
 
 .panel-body {
