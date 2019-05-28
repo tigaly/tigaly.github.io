@@ -61,10 +61,16 @@ $(window).resize(function () {
   $('#c_matrix').attr('height', window.innerHeight);
   $('#c_matrix').attr('width', window.innerWidth);
   columns = $('#c_matrix').attr('width') / font_size;
-  drops = [];
-  for (var x = 0; x < columns; x++)
-    // drops[x] = Math.random() * $('#c_matrix').attr('height') / font_size;
-    drops[x] = 0;
+  resize(drops, columns, 0);
 });
 
+function resize(arr, size, defval) {
+  var delta = arr.length - size;
+  if (delta > 0) {
+    arr.length = size;
+  }
+  else {
+    while (delta++ < 0) { arr.push(defval); }
+  }
+}
 // setInterval(draw, 35);
