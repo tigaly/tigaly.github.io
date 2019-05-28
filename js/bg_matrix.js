@@ -26,7 +26,7 @@ var drops = [];
 //x below is the x coordinate
 //1 = y co-ordinate of the drop(same for every drop initially)
 for (var x = 0; x < columns; x++)
-  drops[x] = 1;
+  drops[x] = Math.random();
 
 //drawing the characters
 function draw() {
@@ -62,7 +62,7 @@ $(window).resize(function () {
   columns = $('#c_matrix').attr('width') / font_size;
   drops = [];
   for (var x = 0; x < columns; x++)
-    drops[x] = 1;
+    drops[x] = Math.random();
 });
 
 // setInterval(draw, 35);
