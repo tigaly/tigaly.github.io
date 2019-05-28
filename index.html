@@ -24,9 +24,11 @@
       $.ajax({
         url: htmlURL,
         dataType: "html",
-        async: true,
+        beforeSend: function () {
+          $(container).fadeOut();
+        },
         success: function (html) {
-          $(container).html(html);
+          $(container).html(html).fadeIn();
         }
       });
     }
