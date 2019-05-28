@@ -25,10 +25,13 @@
         url: htmlURL,
         dataType: "html",
         beforeSend: function () {
-          $(container).fadeOut();
+          // $(container).fadeOut();
         },
         success: function (html) {
-          $(container).html(html).fadeIn();
+          // $(container).html(html).fadeIn();
+          $(container).fadeOut(500, function () {
+            $(this).html(html).fadeIn();
+          });
         }
       });
     }
