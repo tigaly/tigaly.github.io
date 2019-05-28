@@ -59,6 +59,10 @@ setTimeout(draw, 35);
 $(window).resize(function () {
   $('#c_matrix').attr('height', window.innerHeight);
   $('#c_matrix').attr('width', window.innerWidth);
+  columns = $('#c_matrix').attr('width') / font_size;
+  drops = [];
+  for (var x = 0; x < columns; x++)
+    drops[x] = 1;
 });
 
 // setInterval(draw, 35);
