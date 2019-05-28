@@ -24,9 +24,9 @@
       $.ajax({
         url: htmlURL,
         dataType: "html",
-        async: false,
+        async: true,
         success: function (html) {
-          $(containerID).html(html);
+          $(container).html(html);
         }
       });
     }
