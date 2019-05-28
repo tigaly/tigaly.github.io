@@ -57,8 +57,8 @@ function draw() {
 setTimeout(draw, 35);
 
 $(window).resize(function () {
-  $('#c_matrix').setAttribute('height', window.innerHeight);
-  $('#c_matrix').setAttribute('width', window.innerWidth);
+  $('#c_matrix').attr('height', window.innerHeight);
+  $('#c_matrix').attr('width', window.innerWidth);
 });
 
 // setInterval(draw, 35);
