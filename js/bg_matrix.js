@@ -4,13 +4,14 @@ $(document).ready(function () {
   // var c = document.createElement('canvas');
   // c.setAttribute('id', 'c_matrix');
   // c.setAttribute('style', 'position: fixed; top: 0px; left: 0px; z-index: 0; opacity: 0.75;');
-  c = $('#bgMatrix');
-  document.body.appendChild(c);
-  var ctx = c.getContext("2d");
-
+  // c = $('#bgMatrix');
   //making the canvas full screen
-  c.height = window.innerHeight;
-  c.width = window.innerWidth;
+  $('#bgMatrix').height(window.innerHeight);
+  $('#bgMatrix').width(window.innerWidth);
+  // document.body.appendChild(c);
+  var ctx = $('#bgMatrix').getContext("2d");
+
+
 
   //chinese characters - taken from the unicode charset
   var matrix = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわゐゑを";
