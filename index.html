@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -7,95 +7,33 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="charset" content="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>过去30日攻击检测 - 『ね』Security</title>
-  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <link type="text/css" rel="stylesheet" href="css/custom.css" />
-  <script type="text/javascript">
-    function OnGoogleChartAPILoaded() {
-      $.ajax({
-        url: "data/chartDatas.json",
-        dataType: "json",
-        async: false,
-        success: function (jsonData) {
-          $.each(jsonData, function (chartName) {
-            var chartColor = "info"
-            var panel = $('#panel_tample').clone();
-            panel.css('display', '');
-            panel.attr('id', 'panel_' + chartName);
-            if (chartName == "Summary") {
-              panel.addClass('panel-success');
-            } else {
-              panel.addClass('panel-info');
-            }
-            panel.children('.panel-heading').children('.panel-title').attr('href', '#panel_collapse_' +
-              chartName);
-            panel.children('.panel-heading').children('.panel-title').html('<strong>' + chartName +
-              '</strong>&nbsp;(' + jsonData[chartName].lastupdate + ')');
-            panel.children('.panel-collapse').attr('id', 'panel_collapse_' + chartName);
-            panel.children('.panel-collapse').children('.panel-body').children('.chart').attr('id', 'chart_' +
-              chartName);
-            $('#chartDiv').append(panel);
-            var chartData = google.visualization.arrayToDataTable(jsonData[chartName].data);
-            var chart = new google.visualization.LineChart(document.getElementById('chart_' + chartName));
-            chart.draw(chartData, chartOptions);
-            if (chartName != "Summary") {
-              $('#panel_collapse_' + chartName).removeClass('in');
-            }
-          });
-        }
-      });
-    }
-    google.charts.load('current', {
-      'packages': ['corechart'],
-      callback: OnGoogleChartAPILoaded
-    });
-  </script>
-  <script type="text/javascript">
-    var chartOptions = {
-      vAxis: {
-        viewWindow: {
-          min: 0
-        },
-        textStyle: {
-          color: 'white'
-        },
-      },
-      hAxis: {
-        slantedText: true,
-        textStyle: {
-          color: 'white'
-        },
-      },
-      animation: {
-        duration: 1500,
-        easing: 'linear',
-        startup: true
-      },
-      legendTextStyle: {
-        color: 'white'
-      },
-      curveType: 'function',
-      legend: {
-        position: 'top'
-      },
-      backgroundColor: 'black'
-    };
-  </script>
   <script type="text/javascript" src="js/dom-to-image.min.js"></script>
   <script type="text/javascript" src="js/FileSaver.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
-    function GetSummaryImage() {
-      var node = document.getElementById('panel_Summary');
-      domtoimage.toBlob(node).then(function (blob) {
-        saveAs(blob, $('#panel_Summary').children('.panel-heading').children('.panel-title').text().trim() +
-          '.png');
-      }).catch(function (error) {
-        console.error('oops, something went wrong!', error);
+    function loadPageContent(container, htmlURL) {
+      $.ajax({
+        url: htmlURL,
+        dataType: "html",
+        async: false,
+        beforeSend: function () {
+          $("body").css("cursor", "wait");
+        },
+        success: function (html) {
+          $(container).fadeOut(500, function () {
+            $(this).html(html).fadeIn();
+          });
+          $("body").css("cursor", "default");
+        }
       });
     }
   </script>
@@ -105,55 +43,17 @@
   <script type="text/javascript" src="js/bg_matrix.js"></script>
   <br />
   <div class="container" style="width:80%;">
-    <div class="row clearfix">
-      <div class="col-md-12 column">
-        <div class="page-header">
-          <h1 style="color:lime; text-shadow: 0 0 5px white, 0 0 55px white;">
-            过去
-            <strong>30</strong>
-            日攻击检测
-            <small style="color:limegreen">『ね』Security</small>
-          </h1>
-        </div>
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand disabled" href="#">『ね』Security</a>
-            </div>
-            <ul class="nav navbar-nav">
-              <li class="active">
-                <a href="index.html">IP Detected</a>
-              </li>
-              <li>
-                <a href="#" class="disabled">IP Geo</a>
-              </li>
-              <li>
-                <a href="about.html">About</a>
-              </li>
-              <li>
-                <a href="javascript:GetSummaryImage()">Summary2Image</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <div id="chartDiv" class="panel-group">
-        </div>
-        <div class="panel" id="panel_tample" style="display: none;">
-          <div class="panel-heading">
-            <a class='panel-title' data-toggle='collapse' data-parent='#chartDiv' href='#'>title</a>
-          </div>
-          <div class="panel-collapse collapse in">
-            <div class="panel-body" style='height: 400px'>
-              <div class="chart" style="height: 100%; width: 100%; margin: 0;">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="pageHeader" class="clsHeader"></div>
+    <div id="pageNavi" class="clsNavi"></div>
+    <div id="pageContent" class="clsContent"></div>
   </div>
-
-
+  <script type="text/javascript">
+    $(document).ready(function () {
+      loadPageContent('#pageHeader', 'header.html');
+      loadPageContent('#pageNavi', 'navi.html');
+      loadPageContent('#pageContent', 'attacksource.html');
+    })
+  </script>
 </body>
 
 </html>

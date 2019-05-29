@@ -1,14 +1,27 @@
+function resize(arr, size, defval) {
+  var delta = arr.length - size;
+  if (delta > 0) {
+    arr.length = size;
+  }
+  else {
+    while (delta++ < 0) { arr.push(defval); }
+  }
+}
 // geting canvas by id c
 // var c = document.getElementById("c");
 var c = document.createElement('canvas');
 c.setAttribute('id', 'c_matrix');
 c.setAttribute('style', 'position: fixed; top: 0px; left: 0px; z-index: 0; opacity: 0.75;');
-document.body.appendChild(c);
-var ctx = c.getContext("2d");
-
+// c = $('#bgMatrix');
 //making the canvas full screen
 c.height = window.innerHeight;
 c.width = window.innerWidth;
+// $('#bgMatrix').height(window.innerHeight);
+// $('#bgMatrix').width(window.innerWidth);
+document.body.appendChild(c);
+var ctx = c.getContext("2d");
+
+
 
 //chinese characters - taken from the unicode charset
 var matrix = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわゐゑを";
@@ -21,8 +34,7 @@ var columns = c.width / font_size; //number of columns for the rain
 var drops = [];
 //x below is the x coordinate
 //1 = y co-ordinate of the drop(same for every drop initially)
-for (var x = 0; x < columns; x++)
-  drops[x] = 1;
+resize(drops, columns, c.height / font_size);
 
 //drawing the characters
 function draw() {
@@ -48,6 +60,13 @@ function draw() {
     //incrementing Y coordinate
     drops[i]++;
   }
+  setTimeout(draw, 35);
 }
+setTimeout(draw, 35);
 
-setInterval(draw, 35);
+$(window).resize(function () {
+  $('#c_matrix').attr('height', window.innerHeight);
+  $('#c_matrix').attr('width', window.innerWidth);
+  columns = $('#c_matrix').attr('width') / font_size;
+  resize(drops, columns, 0);
+});
